@@ -10,9 +10,14 @@ import UIKit
 
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var NewButton: UIButton!
+    
+    @IBAction func ButtonAction(_ sender: Any) {
+        print("Test")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("App loaded.")
     }
 
 
