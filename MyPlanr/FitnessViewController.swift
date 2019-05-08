@@ -15,6 +15,10 @@ class FitnessViewController: UIViewController {
     }
     @IBOutlet weak var AuthorizationMessageLabel: UILabel!
     
+    @IBAction func getStepsAction(_ sender: Any) {
+        getStepsCount()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,6 +48,10 @@ class FitnessViewController: UIViewController {
                 return
             }
         }
+    }
+    
+    private func getStepsCount() {
+        HealthKitDataStore.getStepsCount()
     }
 
 }
