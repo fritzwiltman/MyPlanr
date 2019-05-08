@@ -13,7 +13,7 @@ class FitnessViewController: UIViewController {
     @IBAction func ButtonAction(_ sender: Any) {
         authorizeHealthKit()
     }
-    
+    @IBOutlet weak var AuthorizationMessageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,16 +25,22 @@ class FitnessViewController: UIViewController {
         HealthKitSetup.authorizeHealthKit { (success, error) in
             
             if success {
-                print("HealthKit was successfully authorized on this device.")
+                DispatchQueue.main.async {
+                    self.AuthorizationMessageLabel.text = "HealthKit was successfully authorized on this device."
+                }
                 
             } else {
                 let errDesc = "HealthKit authorization failed."
                 
                 guard let e = error else {
-                    print(errDesc)
+                    DispatchQueue.main.async {
+                        self.AuthorizationMessageLabel.text = errDesc
+                    }
                     return
                 }
-                print(errDesc + e.localizedDescription)
+                DispatchQueue.main.async {
+                    self.AuthorizationMessageLabel.text = errDesc + e.localizedDescription
+                }
                 return
             }
         }

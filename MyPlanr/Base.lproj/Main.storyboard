@@ -240,7 +240,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnk-00-Fhj">
-                                <rect key="frame" x="0.0" y="400" width="414" height="96"/>
+                                <rect key="frame" x="20.5" y="400" width="373" height="96"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="96" id="XeH-dL-u8t"/>
                                 </constraints>
@@ -251,7 +251,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mnk-00-Fhj" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" id="2qB-eW-10a"/>
+                            <constraint firstItem="mnk-00-Fhj" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" multiplier="0.9" id="2qB-eW-10a"/>
                             <constraint firstItem="Zu8-GU-Crk" firstAttribute="top" secondItem="hFh-t9-LVz" secondAttribute="top" constant="34" id="73v-g8-Gth"/>
                             <constraint firstItem="mnk-00-Fhj" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="LO8-vV-bfP"/>
                             <constraint firstItem="Z2d-ZK-FQK" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="OU2-Uk-Th4"/>
@@ -265,6 +265,9 @@
                     <tabBarItem key="tabBarItem" title="Fitness" image="fitness_bold" selectedImage="fitness_bold" id="QsG-Ya-F90">
                         <inset key="largeContentSizeImageInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="AuthorizationMessageLabel" destination="mnk-00-Fhj" id="BJA-Zh-iPS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhY-uZ-kGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
