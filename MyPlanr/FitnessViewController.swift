@@ -10,25 +10,34 @@ import UIKit
 
 class FitnessViewController: UIViewController {
 
-   
     @IBAction func ButtonAction(_ sender: Any) {
-        print("Welcome to the Fitness tab.")
+        authorizeHealthKit()
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func authorizeHealthKit() {
+        HealthKitSetup.authorizeHealthKit { (success, error) in
+            
+            if success {
+                print("HealthKit was successfully authorized on this device.")
+                
+            } else {
+                let errDesc = "HealthKit authorization failed."
+                
+                guard let e = error else {
+                    print(errDesc)
+                    return
+                }
+                print(errDesc + e.localizedDescription)
+                return
+            }
+        }
     }
-    */
 
 }

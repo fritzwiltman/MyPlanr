@@ -219,41 +219,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu8-GU-Crk">
-                                <rect key="frame" x="133.5" y="374" width="147" height="109"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFQ-3L-ghx">
-                                <rect key="frame" x="177" y="602" width="60" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-ZK-FQK">
-                                <rect key="frame" x="164" y="519" width="86" height="30"/>
+                                <rect key="frame" x="0.0" y="171" width="414" height="48"/>
+                                <color key="backgroundColor" red="1" green="0.71485838098999066" blue="0.18146145049207962" alpha="0.746643926056338" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="22X-eW-15S"/>
+                                    <constraint firstAttribute="height" constant="48" id="Zcx-vb-pYA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Authorize HealthKit">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
                                 <connections>
                                     <action selector="ButtonAction:" destination="kWr-Kf-BHy" eventType="touchUpInside" id="Pd3-Fa-ONM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu8-GU-Crk">
+                                <rect key="frame" x="133.5" y="78" width="147" height="48"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnk-00-Fhj">
+                                <rect key="frame" x="0.0" y="400" width="414" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="XeH-dL-u8t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Zu8-GU-Crk" firstAttribute="centerY" secondItem="hFh-t9-LVz" secondAttribute="centerY" id="0oW-jK-VrD"/>
-                            <constraint firstItem="Zu8-GU-Crk" firstAttribute="centerX" secondItem="hFh-t9-LVz" secondAttribute="centerX" id="4pz-uc-tRh"/>
-                            <constraint firstAttribute="bottom" secondItem="Z2d-ZK-FQK" secondAttribute="bottom" constant="347" id="6vZ-SS-75h"/>
-                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="centerX" secondItem="Zu8-GU-Crk" secondAttribute="centerX" id="8dK-Wp-Aky"/>
-                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="leading" secondItem="hFh-t9-LVz" secondAttribute="leading" constant="164" id="NFv-gD-6yi"/>
-                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="centerX" secondItem="jFQ-3L-ghx" secondAttribute="centerX" id="d7L-gQ-31I"/>
-                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="fEc-ge-Sx4"/>
-                            <constraint firstItem="jFQ-3L-ghx" firstAttribute="top" secondItem="Z2d-ZK-FQK" secondAttribute="bottom" constant="53" id="inE-u3-gzM"/>
-                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="top" secondItem="Zu8-GU-Crk" secondAttribute="bottom" constant="36" id="l6s-iV-R3Q"/>
+                            <constraint firstItem="mnk-00-Fhj" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" id="2qB-eW-10a"/>
+                            <constraint firstItem="Zu8-GU-Crk" firstAttribute="top" secondItem="hFh-t9-LVz" secondAttribute="top" constant="34" id="73v-g8-Gth"/>
+                            <constraint firstItem="mnk-00-Fhj" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="LO8-vV-bfP"/>
+                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="OU2-Uk-Th4"/>
+                            <constraint firstItem="Zu8-GU-Crk" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="QcJ-cr-thw"/>
+                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" id="R7C-Jb-zX2"/>
+                            <constraint firstItem="mnk-00-Fhj" firstAttribute="centerY" secondItem="FiU-uk-9JJ" secondAttribute="centerY" id="Rtu-SD-Ti4"/>
+                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="top" secondItem="Zu8-GU-Crk" secondAttribute="bottom" constant="45" id="fws-Sd-qQB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hFh-t9-LVz"/>
                     </view>
