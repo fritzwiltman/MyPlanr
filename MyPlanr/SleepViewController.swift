@@ -11,23 +11,46 @@ import UIKit
 class SleepViewController: UIViewController {
 
     @IBAction func ButtonAction(_ sender: Any) {
-        print("Welcome to the Sleep tab.")
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // used to test segue with tab bar
+//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+//        tabBarController.selectedIndex = 0
+//        self.present(tabBarController, animated: true, completion: nil)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        HealthKitSetup.authorizeSleepAnalysis { (success, error) in
+            
+            if success {
+                DispatchQueue.main.async {
+                    print("Sleep analysis was successfully authorized")
+                }
+                
+            } else {
+                
+                let errDesc = "HealthKit authorization failed."
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+                if let e = error {
+                    DispatchQueue.main.async {
+                        print(errDesc + e.localizedDescription)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        print(errDesc)
+                    }
+                }
+                self.returnToCalendarView()
+            }
+        }
     }
-    */
-
+    
+    private func returnToCalendarView() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+        tabBarController.selectedIndex = 0
+        self.present(tabBarController, animated: true, completion: nil)
+    }
+    
 }

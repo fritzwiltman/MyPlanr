@@ -10,25 +10,56 @@ import UIKit
 
 class FitnessViewController: UIViewController {
 
-   
     @IBAction func ButtonAction(_ sender: Any) {
-        print("Welcome to the Fitness tab.")
+        getStepsCount()
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var AuthorizationMessageLabel: UILabel!
+    
+    @IBAction func getStepsAction(_ sender: Any) {
+        getDistanceWalkRun()
+        getStepsCount()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        HealthKitSetup.authorizeHealthKit { (success, error) in
+            
+            if success {
+                DispatchQueue.main.async {
+                    self.AuthorizationMessageLabel.text = "HealthKit was successfully authorized on this device."
+                }
+                
+            } else {
+                let errDesc = "HealthKit authorization failed."
+                
+                if let e = error {
+                    DispatchQueue.main.async {
+                        self.AuthorizationMessageLabel.text = errDesc + e.localizedDescription
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        print(errDesc)
+                    }
+                }
+                self.returnToCalendarView()
+            }
+        }
     }
-    */
+    
+    private func getStepsCount() {
+        HealthKitDataStore.getStepsCount()
+    }
+    
+    private func getDistanceWalkRun() {
+        HealthKitDataStore.getDistanceWalkRun()
+    }
+    
+    private func returnToCalendarView() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+        tabBarController.selectedIndex = 0
+        self.present(tabBarController, animated: true, completion: nil)
+    }
 
 }
