@@ -11,21 +11,18 @@ import UIKit
 class FitnessViewController: UIViewController {
 
     @IBAction func ButtonAction(_ sender: Any) {
-        authorizeHealthKit()
+        getStepsCount()
     }
     @IBOutlet weak var AuthorizationMessageLabel: UILabel!
     
     @IBAction func getStepsAction(_ sender: Any) {
+        getDistanceWalkRun()
         getStepsCount()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    private func authorizeHealthKit() {
+        
         HealthKitSetup.authorizeHealthKit { (success, error) in
             
             if success {
@@ -36,22 +33,33 @@ class FitnessViewController: UIViewController {
             } else {
                 let errDesc = "HealthKit authorization failed."
                 
-                guard let e = error else {
+                if let e = error {
                     DispatchQueue.main.async {
-                        self.AuthorizationMessageLabel.text = errDesc
+                        self.AuthorizationMessageLabel.text = errDesc + e.localizedDescription
                     }
-                    return
+                } else {
+                    DispatchQueue.main.async {
+                        print(errDesc)
+                    }
                 }
-                DispatchQueue.main.async {
-                    self.AuthorizationMessageLabel.text = errDesc + e.localizedDescription
-                }
-                return
+                self.returnToCalendarView()
             }
         }
     }
     
     private func getStepsCount() {
         HealthKitDataStore.getStepsCount()
+    }
+    
+    private func getDistanceWalkRun() {
+        HealthKitDataStore.getDistanceWalkRun()
+    }
+    
+    private func returnToCalendarView() {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
+        tabBarController.selectedIndex = 0
+        self.present(tabBarController, animated: true, completion: nil)
     }
 
 }

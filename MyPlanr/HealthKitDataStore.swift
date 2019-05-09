@@ -28,4 +28,22 @@ class HealthKitDataStore {
         HKHealthStore().execute(stepsQuery)
     }
     
+    class func getDistanceWalkRun() {
+        let distanceWalkRunType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!
+        
+        let distanceQuery = HKSampleQuery(sampleType: distanceWalkRunType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) {
+            (distanceQuery, result, error) in
+            
+            DispatchQueue.main.async {
+                guard let distance = result?.last as? HKQuantitySample else {
+                    print("Error fetching walking/running distance.")
+                    return
+                }
+                print(distance)         //distance or distance.count? Also is a sample the total distance for the day?
+            }
+        }
+        HKHealthStore().execute(distanceQuery)
+        
+    }
+    
 }

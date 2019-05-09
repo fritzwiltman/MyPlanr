@@ -13,7 +13,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" id="49e-Tb-3d3" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -226,7 +226,7 @@
                                     <constraint firstAttribute="height" constant="48" id="Zcx-vb-pYA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Authorize HealthKit">
+                                <state key="normal" title="Refresh Fitness Data">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -299,37 +299,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5N-3i-vgq">
-                                <rect key="frame" x="150.5" y="404.5" width="113.5" height="48"/>
+                                <rect key="frame" x="150.5" y="78" width="113.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S0-jt-TV3">
-                                <rect key="frame" x="177" y="592" width="60" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eav-FF-SVo">
-                                <rect key="frame" x="164" y="509" width="87" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iS-ku-86s">
+                                <rect key="frame" x="0.0" y="171" width="414" height="48"/>
+                                <color key="backgroundColor" red="0.27505318218090435" green="0.043379447382227557" blue="0.66501376295336789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="Lri-SG-LcP"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Refresh Sleep Data">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="ButtonAction:" destination="GkH-rP-5pK" eventType="touchUpInside" id="GW2-qv-jv3"/>
+                                    <action selector="ButtonAction:" destination="GkH-rP-5pK" eventType="touchUpInside" id="9dH-Ky-EAx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.69585282733901055" green="0.63382983702366302" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hqP-Jb-FRR" firstAttribute="bottom" secondItem="4S0-jt-TV3" secondAttribute="bottom" constant="191" id="0y2-gf-KiE"/>
-                            <constraint firstItem="a5N-3i-vgq" firstAttribute="centerY" secondItem="hqP-Jb-FRR" secondAttribute="centerY" id="CGh-Nh-fEE"/>
-                            <constraint firstItem="a5N-3i-vgq" firstAttribute="centerX" secondItem="hqP-Jb-FRR" secondAttribute="centerX" id="HJv-Di-j3A"/>
-                            <constraint firstItem="eav-FF-SVo" firstAttribute="top" secondItem="a5N-3i-vgq" secondAttribute="bottom" constant="56.5" id="OJj-81-Mii"/>
-                            <constraint firstItem="hqP-Jb-FRR" firstAttribute="trailing" secondItem="eav-FF-SVo" secondAttribute="trailing" constant="163" id="bhm-Yj-YAA"/>
-                            <constraint firstItem="4S0-jt-TV3" firstAttribute="top" secondItem="eav-FF-SVo" secondAttribute="bottom" constant="47" id="clH-Xc-yCu"/>
-                            <constraint firstItem="4S0-jt-TV3" firstAttribute="leading" secondItem="hqP-Jb-FRR" secondAttribute="leading" constant="177" id="fNs-W5-GDu"/>
-                            <constraint firstItem="hqP-Jb-FRR" firstAttribute="trailing" secondItem="4S0-jt-TV3" secondAttribute="trailing" constant="177" id="hEd-wH-UtC"/>
-                            <constraint firstItem="eav-FF-SVo" firstAttribute="leading" secondItem="hqP-Jb-FRR" secondAttribute="leading" constant="164" id="twC-B2-mTI"/>
+                            <constraint firstItem="a5N-3i-vgq" firstAttribute="top" secondItem="hqP-Jb-FRR" secondAttribute="top" constant="34" id="DSa-V9-Zbe"/>
+                            <constraint firstItem="0iS-ku-86s" firstAttribute="centerX" secondItem="W9T-8g-igG" secondAttribute="centerX" id="Ewe-44-WkT"/>
+                            <constraint firstItem="0iS-ku-86s" firstAttribute="width" secondItem="W9T-8g-igG" secondAttribute="width" id="VHN-Of-93Z"/>
+                            <constraint firstItem="a5N-3i-vgq" firstAttribute="centerX" secondItem="W9T-8g-igG" secondAttribute="centerX" id="ijg-ch-fx3"/>
+                            <constraint firstItem="0iS-ku-86s" firstAttribute="top" secondItem="a5N-3i-vgq" secondAttribute="bottom" constant="45" id="o7n-kw-mRt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hqP-Jb-FRR"/>
                     </view>

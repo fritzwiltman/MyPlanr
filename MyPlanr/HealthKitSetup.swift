@@ -40,4 +40,24 @@ class HealthKitSetup {
         }
     }
     
+    class func authorizeSleepAnalysis(completion: @escaping (Bool, Error?) -> Void) {
+        if HKHealthStore.isHealthDataAvailable() {
+            guard let sleepAnalysis = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
+                completion(false, HealthKitError.dataTypeNotAvailable)
+                return
+            }
+            
+            let sleepAnalysisTypesToWrite: Set<HKSampleType> = [sleepAnalysis]
+            let sleepAnalysisTypesToRead: Set<HKObjectType> = [sleepAnalysis]
+            
+            HKHealthStore().requestAuthorization(toShare: sleepAnalysisTypesToWrite, read: sleepAnalysisTypesToRead) {
+                (success, error) in completion(success, error)
+            }
+            
+        } else {
+            completion(false, HealthKitError.notAvailableOnDevice)
+            return
+        }
+    }
+    
 }
