@@ -11,15 +11,13 @@ import UIKit
 class SleepViewController: UIViewController {
 
     @IBAction func ButtonAction(_ sender: Any) {
-        // used to test segue with tab bar
-//        let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//        let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
-//        tabBarController.selectedIndex = 0
-//        self.present(tabBarController, animated: true, completion: nil)
+        HealthKitDataStore.readSleepActivtiy()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addSleepActivity))
         
         HealthKitSetup.authorizeSleepAnalysis { (success, error) in
             
@@ -51,6 +49,10 @@ class SleepViewController: UIViewController {
         let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
         tabBarController.selectedIndex = 0
         self.present(tabBarController, animated: true, completion: nil)
+    }
+    
+    @objc private func addSleepActivity(sender: Any) {
+        self.performSegue(withIdentifier: "segue", sender: self)
     }
     
 }

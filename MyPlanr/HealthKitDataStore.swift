@@ -46,4 +46,41 @@ class HealthKitDataStore {
         
     }
     
+    class func writeSleepActivity(start: Date, end: Date) {
+        let healthStore = HKHealthStore()
+        
+        if let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) {
+            let sample = HKCategorySample(type: sleepType, value: HKCategoryValueSleepAnalysis.asleep.rawValue, start: start, end: end)
+            
+            healthStore.save(sample) { (success, error) in
+                guard let e = error else {
+                    print("Successfully wrote sleep data")
+                    return
+                }
+                
+                print("Error writing sleep data: \(e)")
+            }
+        }
+    }
+    
+    class func readSleepActivtiy() {
+        if let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) {
+            
+            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+            
+            let sleepQuery = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) {
+                (sleepQuery, result, error) in
+                
+                DispatchQueue.main.async {
+                    guard let sleep = result?.last as? HKCategorySample else {
+                        print("Error fetching sleep data")
+                        return
+                    }
+                    print(sleep)
+                }
+            }
+            HKHealthStore().execute(sleepQuery)
+        }
+    }
+    
 }

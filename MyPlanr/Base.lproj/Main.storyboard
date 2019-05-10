@@ -226,7 +226,7 @@
                                     <constraint firstAttribute="height" constant="48" id="Zcx-vb-pYA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Refresh Fitness Data">
+                                <state key="normal" title="Refresh Fitness Activity">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -311,12 +311,11 @@
                                     <constraint firstAttribute="height" constant="48" id="Lri-SG-LcP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Add Sleep Data">
+                                <state key="normal" title="Refresh Sleep Activity">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="ButtonAction:" destination="GkH-rP-5pK" eventType="touchUpInside" id="9dH-Ky-EAx"/>
-                                    <segue destination="ZbZ-Za-NHf" kind="show" id="Goz-Ik-jYy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -331,6 +330,9 @@
                         <viewLayoutGuide key="safeArea" id="hqP-Jb-FRR"/>
                     </view>
                     <navigationItem key="navigationItem" id="heA-r5-sYH"/>
+                    <connections>
+                        <segue destination="ZbZ-Za-NHf" kind="show" identifier="segue" id="wIM-0m-eEf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufo-C4-Cle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -344,14 +346,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lb-2o-wkJ">
-                                <rect key="frame" x="140.5" y="103" width="133" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="txx-bv-5zT">
-                                <rect key="frame" x="0.0" y="214" width="414" height="180"/>
+                                <rect key="frame" x="0.0" y="156" width="414" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="O6c-k2-MDa"/>
                                 </constraints>
@@ -359,17 +355,17 @@
                                     <!--2019-05-09 23:59:50 +0000-->
                                 </date>
                                 <connections>
-                                    <action selector="changedStartDate:" destination="ZbZ-Za-NHf" eventType="valueChanged" id="zOk-s4-2Hy"/>
+                                    <action selector="changedDate:" destination="ZbZ-Za-NHf" eventType="valueChanged" id="U3P-MR-HNq"/>
                                 </connections>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick the time you fell asleep:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mw1-v5-VRL">
-                                <rect key="frame" x="8" y="185" width="218" height="21"/>
+                                <rect key="frame" x="8" y="127" width="218" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fell asleep at..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNQ-lw-wKF">
-                                <rect key="frame" x="0.0" y="406" width="414" height="30"/>
+                                <rect key="frame" x="0.0" y="348" width="414" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="xEX-rS-GEr"/>
@@ -377,23 +373,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6d1-xb-wRX">
+                                <rect key="frame" x="0.0" y="462" width="414" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="ts5-Oj-OmG"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="579139190.20297396">
+                                    <!--2019-05-09 23:59:50 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="changedDate:" destination="ZbZ-Za-NHf" eventType="valueChanged" id="r40-Pn-LWg"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next, pick the time you woke up:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFE-MU-OU0">
+                                <rect key="frame" x="8" y="433" width="249" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Woke up at..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxp-Tf-YFr">
+                                <rect key="frame" x="0.0" y="654" width="414" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DVi-zw-0fh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6d1-xb-wRX" firstAttribute="width" secondItem="Hsl-We-hJg" secondAttribute="width" id="0h1-fO-Ss8"/>
+                            <constraint firstItem="6d1-xb-wRX" firstAttribute="centerX" secondItem="Okf-Sz-cOp" secondAttribute="centerX" id="3JT-am-CMA"/>
+                            <constraint firstItem="6d1-xb-wRX" firstAttribute="top" secondItem="BFE-MU-OU0" secondAttribute="bottom" constant="8" id="6aQ-nL-9QV"/>
                             <constraint firstItem="dNQ-lw-wKF" firstAttribute="top" secondItem="txx-bv-5zT" secondAttribute="bottom" constant="12" id="A8D-ip-m3z"/>
                             <constraint firstItem="dNQ-lw-wKF" firstAttribute="width" secondItem="Hsl-We-hJg" secondAttribute="width" id="Dem-6a-kN2"/>
+                            <constraint firstItem="BFE-MU-OU0" firstAttribute="leading" secondItem="Okf-Sz-cOp" secondAttribute="leading" constant="8" id="EmO-Mv-n9T"/>
                             <constraint firstItem="dNQ-lw-wKF" firstAttribute="centerX" secondItem="Okf-Sz-cOp" secondAttribute="centerX" id="GDl-yE-06Q"/>
+                            <constraint firstItem="mw1-v5-VRL" firstAttribute="top" secondItem="Okf-Sz-cOp" secondAttribute="top" constant="39" id="NYa-5Z-tfa"/>
                             <constraint firstItem="txx-bv-5zT" firstAttribute="centerX" secondItem="Okf-Sz-cOp" secondAttribute="centerX" id="UOI-rq-zq5"/>
                             <constraint firstItem="txx-bv-5zT" firstAttribute="width" secondItem="Hsl-We-hJg" secondAttribute="width" id="Uej-2b-D1p"/>
-                            <constraint firstItem="3lb-2o-wkJ" firstAttribute="centerX" secondItem="Hsl-We-hJg" secondAttribute="centerX" id="bfD-Uw-mDr"/>
-                            <constraint firstItem="mw1-v5-VRL" firstAttribute="top" secondItem="3lb-2o-wkJ" secondAttribute="bottom" constant="46" id="jjm-qS-AH4"/>
-                            <constraint firstItem="3lb-2o-wkJ" firstAttribute="top" secondItem="Okf-Sz-cOp" secondAttribute="top" constant="15" id="jvR-Es-j3H"/>
+                            <constraint firstItem="BFE-MU-OU0" firstAttribute="top" secondItem="dNQ-lw-wKF" secondAttribute="bottom" constant="55" id="dCt-uU-4BP"/>
+                            <constraint firstItem="oxp-Tf-YFr" firstAttribute="width" secondItem="Hsl-We-hJg" secondAttribute="width" id="dFq-2Y-R9u"/>
+                            <constraint firstItem="oxp-Tf-YFr" firstAttribute="centerX" secondItem="Okf-Sz-cOp" secondAttribute="centerX" id="gue-70-jp3"/>
                             <constraint firstItem="txx-bv-5zT" firstAttribute="top" secondItem="mw1-v5-VRL" secondAttribute="bottom" constant="8" id="keO-yM-tP7"/>
                             <constraint firstItem="mw1-v5-VRL" firstAttribute="leading" secondItem="Okf-Sz-cOp" secondAttribute="leading" constant="8" id="oDq-rK-XuG"/>
+                            <constraint firstItem="oxp-Tf-YFr" firstAttribute="top" secondItem="6d1-xb-wRX" secondAttribute="bottom" constant="12" id="vxA-cF-S4D"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Okf-Sz-cOp"/>
                     </view>
                     <connections>
+                        <outlet property="EndDateLabel" destination="oxp-Tf-YFr" id="7zY-aC-QYV"/>
+                        <outlet property="EndDatePicker" destination="6d1-xb-wRX" id="HNo-WB-ucV"/>
                         <outlet property="StartDateLabel" destination="dNQ-lw-wKF" id="aPB-XI-tMM"/>
                         <outlet property="StartDatePicker" destination="txx-bv-5zT" id="nSl-kF-are"/>
                     </connections>
