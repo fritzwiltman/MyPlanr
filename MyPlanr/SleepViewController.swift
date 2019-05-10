@@ -11,8 +11,10 @@ import UIKit
 class SleepViewController: UIViewController {
 
     @IBAction func ButtonAction(_ sender: Any) {
-        HealthKitDataStore.readSleepActivtiy()
+        fetchSleepActivityMostRecent()
     }
+    
+    @IBOutlet weak var YesterdayLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +23,7 @@ class SleepViewController: UIViewController {
         
         HealthKitSetup.authorizeSleepAnalysis { (success, error) in
             
-            if success {
-                DispatchQueue.main.async {
-                    print("Sleep analysis was successfully authorized")
-                }
-                
-            } else {
+            if !success {
                 
                 let errDesc = "HealthKit authorization failed."
 
@@ -42,6 +39,8 @@ class SleepViewController: UIViewController {
                 self.returnToCalendarView()
             }
         }
+        
+        fetchSleepActivityMostRecent()
     }
     
     private func returnToCalendarView() {
@@ -53,6 +52,28 @@ class SleepViewController: UIViewController {
     
     @objc private func addSleepActivity(sender: Any) {
         self.performSegue(withIdentifier: "segue", sender: self)
+    }
+    
+    private func fetchSleepActivityMostRecent() {
+        HealthKitDataStore.readSleepActivtiyMostRecent() { (activity, error) in
+            var displayString = "- - -"
+            
+            if error == nil {
+                let start = activity?.startDate
+                let end = activity?.endDate
+                let interval = end?.timeIntervalSince(start!)
+                
+                let secondsInMinute: Double = 60
+                let minutesInHour: Int = 60
+                let secondsInHour: Double = 3600
+                let hours = Int(interval!/secondsInHour)
+                let minutes = Int(interval!/secondsInMinute) % minutesInHour
+                displayString = "\(hours) hrs \(minutes) mins"
+            }
+            DispatchQueue.main.async {
+                self.YesterdayLabel.text = displayString
+            }
+        }
     }
     
 }

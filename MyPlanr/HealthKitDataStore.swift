@@ -63,7 +63,7 @@ class HealthKitDataStore {
         }
     }
     
-    class func readSleepActivtiy() {
+    class func readSleepActivtiyMostRecent(completion: @escaping (HKCategorySample?, Error?) -> Void) {
         if let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) {
             
             let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
@@ -71,13 +71,12 @@ class HealthKitDataStore {
             let sleepQuery = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) {
                 (sleepQuery, result, error) in
                 
-                DispatchQueue.main.async {
-                    guard let sleep = result?.last as? HKCategorySample else {
-                        print("Error fetching sleep data")
-                        return
-                    }
-                    print(sleep)
+                guard let sleep = result?.last as? HKCategorySample else {
+                    completion(nil, error)
+                    return
                 }
+                completion(sleep, nil)
+                
             }
             HKHealthStore().execute(sleepQuery)
         }

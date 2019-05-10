@@ -299,7 +299,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5N-3i-vgq">
-                                <rect key="frame" x="150.5" y="103" width="113.5" height="48"/>
+                                <rect key="frame" x="150" y="103" width="114" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -318,19 +318,49 @@
                                     <action selector="ButtonAction:" destination="GkH-rP-5pK" eventType="touchUpInside" id="9dH-Ky-EAx"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMY-Tc-leM">
+                                <rect key="frame" x="0.0" y="229" width="414" height="100"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yesterday's sleep activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMk-ds-CLq">
+                                        <rect key="frame" x="8" y="8" width="164" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="L9q-WR-C8G"/>
+                                    <constraint firstItem="EMk-ds-CLq" firstAttribute="top" secondItem="sMY-Tc-leM" secondAttribute="top" constant="8" id="hDt-nw-AZm"/>
+                                    <constraint firstItem="EMk-ds-CLq" firstAttribute="leading" secondItem="sMY-Tc-leM" secondAttribute="leading" constant="8" id="nSY-T9-EG8"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- - -" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYT-or-y5Y">
+                                <rect key="frame" x="0.0" y="271" width="414" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.69585282733901055" green="0.63382983702366302" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="a5N-3i-vgq" firstAttribute="top" secondItem="hqP-Jb-FRR" secondAttribute="top" constant="15" id="DSa-V9-Zbe"/>
                             <constraint firstItem="0iS-ku-86s" firstAttribute="centerX" secondItem="W9T-8g-igG" secondAttribute="centerX" id="Ewe-44-WkT"/>
+                            <constraint firstItem="DYT-or-y5Y" firstAttribute="centerX" secondItem="sMY-Tc-leM" secondAttribute="centerX" id="NrD-Y3-aeN"/>
+                            <constraint firstItem="sMY-Tc-leM" firstAttribute="centerX" secondItem="hqP-Jb-FRR" secondAttribute="centerX" id="QJI-Bi-BOn"/>
                             <constraint firstItem="0iS-ku-86s" firstAttribute="width" secondItem="W9T-8g-igG" secondAttribute="width" id="VHN-Of-93Z"/>
+                            <constraint firstItem="sMY-Tc-leM" firstAttribute="top" secondItem="0iS-ku-86s" secondAttribute="bottom" constant="8" id="c1O-Db-Sgx"/>
+                            <constraint firstItem="DYT-or-y5Y" firstAttribute="top" secondItem="0iS-ku-86s" secondAttribute="bottom" constant="50" id="goM-zO-4xP"/>
+                            <constraint firstItem="DYT-or-y5Y" firstAttribute="width" secondItem="sMY-Tc-leM" secondAttribute="width" id="gsM-xV-cBg"/>
                             <constraint firstItem="a5N-3i-vgq" firstAttribute="centerX" secondItem="W9T-8g-igG" secondAttribute="centerX" id="ijg-ch-fx3"/>
+                            <constraint firstItem="sMY-Tc-leM" firstAttribute="width" secondItem="W9T-8g-igG" secondAttribute="width" id="ljF-fv-fMV"/>
                             <constraint firstItem="0iS-ku-86s" firstAttribute="top" secondItem="a5N-3i-vgq" secondAttribute="bottom" constant="22" id="o7n-kw-mRt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hqP-Jb-FRR"/>
                     </view>
                     <navigationItem key="navigationItem" id="heA-r5-sYH"/>
                     <connections>
+                        <outlet property="YesterdayLabel" destination="DYT-or-y5Y" id="N6D-bO-bbW"/>
                         <segue destination="ZbZ-Za-NHf" kind="show" identifier="segue" id="wIM-0m-eEf"/>
                     </connections>
                 </viewController>
