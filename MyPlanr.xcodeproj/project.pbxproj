@@ -20,6 +20,7 @@
 		89E057FC228240BC0041E1C3 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89E057FB228240BC0041E1C3 /* HealthKit.framework */; };
 		89E057FE228244710041E1C3 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E057FD228244710041E1C3 /* HealthKitSetup.swift */; };
 		89E058002282632F0041E1C3 /* HealthKitDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E057FF2282632F0041E1C3 /* HealthKitDataStore.swift */; };
+		89E233C62284EE9400CECE40 /* SleepActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E233C52284EE9400CECE40 /* SleepActivityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		89E057FB228240BC0041E1C3 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		89E057FD228244710041E1C3 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
 		89E057FF2282632F0041E1C3 /* HealthKitDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataStore.swift; sourceTree = "<group>"; };
+		89E233C52284EE9400CECE40 /* SleepActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepActivityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				1F6EE83622761A13005F9D38 /* Info.plist */,
 				89E057FD228244710041E1C3 /* HealthKitSetup.swift */,
 				89E057FF2282632F0041E1C3 /* HealthKitDataStore.swift */,
+				89E233C52284EE9400CECE40 /* SleepActivityViewController.swift */,
 			);
 			path = MyPlanr;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				1F0D602522781A61009796FA /* AssignmentsViewController.swift in Sources */,
 				1F0D602722781A74009796FA /* FitnessViewController.swift in Sources */,
 				89E057FE228244710041E1C3 /* HealthKitSetup.swift in Sources */,
+				89E233C62284EE9400CECE40 /* SleepActivityViewController.swift in Sources */,
 				89E058002282632F0041E1C3 /* HealthKitDataStore.swift in Sources */,
 				1F0D602922781A7E009796FA /* SleepViewController.swift in Sources */,
 				1F0D602222781A2A009796FA /* CalendarViewController.swift in Sources */,

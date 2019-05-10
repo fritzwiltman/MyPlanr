@@ -23,7 +23,7 @@
                         <segue destination="e6v-Kv-vgN" kind="relationship" relationship="viewControllers" id="KEV-EZ-7G0"/>
                         <segue destination="tqf-qi-KJP" kind="relationship" relationship="viewControllers" id="O0Q-a0-OZ7"/>
                         <segue destination="kWr-Kf-BHy" kind="relationship" relationship="viewControllers" id="A71-n2-1Fo"/>
-                        <segue destination="GkH-rP-5pK" kind="relationship" relationship="viewControllers" id="uSd-lD-tcL"/>
+                        <segue destination="zpl-Hj-9yt" kind="relationship" relationship="viewControllers" id="uSd-lD-tcL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-ZK-FQK">
-                                <rect key="frame" x="0.0" y="171" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="129" width="414" height="48"/>
                                 <color key="backgroundColor" red="1" green="0.71485838099999999" blue="0.18146145050000001" alpha="0.74664392609999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Zcx-vb-pYA"/>
@@ -234,7 +234,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu8-GU-Crk">
-                                <rect key="frame" x="133.5" y="78" width="147" height="48"/>
+                                <rect key="frame" x="133.5" y="59" width="147" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -249,7 +249,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2B-Fb-D3O">
-                                <rect key="frame" x="0.0" y="227" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="185" width="414" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="khc-ue-Dw6"/>
@@ -266,7 +266,7 @@
                         <color key="backgroundColor" red="1" green="0.95462034551071751" blue="0.86542323244585528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mnk-00-Fhj" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" multiplier="0.9" id="2qB-eW-10a"/>
-                            <constraint firstItem="Zu8-GU-Crk" firstAttribute="top" secondItem="hFh-t9-LVz" secondAttribute="top" constant="34" id="73v-g8-Gth"/>
+                            <constraint firstItem="Zu8-GU-Crk" firstAttribute="top" secondItem="hFh-t9-LVz" secondAttribute="top" constant="15" id="73v-g8-Gth"/>
                             <constraint firstItem="mnk-00-Fhj" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="LO8-vV-bfP"/>
                             <constraint firstItem="Z2d-ZK-FQK" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="OU2-Uk-Th4"/>
                             <constraint firstItem="Zu8-GU-Crk" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="QcJ-cr-thw"/>
@@ -274,7 +274,7 @@
                             <constraint firstItem="Z2d-ZK-FQK" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" id="R7C-Jb-zX2"/>
                             <constraint firstItem="mnk-00-Fhj" firstAttribute="centerY" secondItem="FiU-uk-9JJ" secondAttribute="centerY" id="Rtu-SD-Ti4"/>
                             <constraint firstItem="o2B-Fb-D3O" firstAttribute="top" secondItem="Z2d-ZK-FQK" secondAttribute="bottom" constant="8" id="a7n-BK-Qvg"/>
-                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="top" secondItem="Zu8-GU-Crk" secondAttribute="bottom" constant="45" id="fws-Sd-qQB"/>
+                            <constraint firstItem="Z2d-ZK-FQK" firstAttribute="top" secondItem="Zu8-GU-Crk" secondAttribute="bottom" constant="22" id="fws-Sd-qQB"/>
                             <constraint firstItem="o2B-Fb-D3O" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" id="peL-59-JT4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hFh-t9-LVz"/>
@@ -290,7 +290,7 @@
             </objects>
             <point key="canvasLocation" x="938" y="1202"/>
         </scene>
-        <!--Sleep-->
+        <!--Sleep View Controller-->
         <scene sceneID="hNV-0J-Q4L">
             <objects>
                 <viewController id="GkH-rP-5pK" customClass="SleepViewController" customModule="MyPlanr" customModuleProvider="target" sceneMemberID="viewController">
@@ -299,41 +299,127 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5N-3i-vgq">
-                                <rect key="frame" x="150.5" y="78" width="113.5" height="48"/>
+                                <rect key="frame" x="150.5" y="103" width="113.5" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0iS-ku-86s">
-                                <rect key="frame" x="0.0" y="171" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="173" width="414" height="48"/>
                                 <color key="backgroundColor" red="0.27505318218090435" green="0.043379447382227557" blue="0.66501376295336789" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Lri-SG-LcP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Refresh Sleep Data">
+                                <state key="normal" title="Add Sleep Data">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="ButtonAction:" destination="GkH-rP-5pK" eventType="touchUpInside" id="9dH-Ky-EAx"/>
+                                    <segue destination="ZbZ-Za-NHf" kind="show" id="Goz-Ik-jYy"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.69585282733901055" green="0.63382983702366302" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="a5N-3i-vgq" firstAttribute="top" secondItem="hqP-Jb-FRR" secondAttribute="top" constant="34" id="DSa-V9-Zbe"/>
+                            <constraint firstItem="a5N-3i-vgq" firstAttribute="top" secondItem="hqP-Jb-FRR" secondAttribute="top" constant="15" id="DSa-V9-Zbe"/>
                             <constraint firstItem="0iS-ku-86s" firstAttribute="centerX" secondItem="W9T-8g-igG" secondAttribute="centerX" id="Ewe-44-WkT"/>
                             <constraint firstItem="0iS-ku-86s" firstAttribute="width" secondItem="W9T-8g-igG" secondAttribute="width" id="VHN-Of-93Z"/>
                             <constraint firstItem="a5N-3i-vgq" firstAttribute="centerX" secondItem="W9T-8g-igG" secondAttribute="centerX" id="ijg-ch-fx3"/>
-                            <constraint firstItem="0iS-ku-86s" firstAttribute="top" secondItem="a5N-3i-vgq" secondAttribute="bottom" constant="45" id="o7n-kw-mRt"/>
+                            <constraint firstItem="0iS-ku-86s" firstAttribute="top" secondItem="a5N-3i-vgq" secondAttribute="bottom" constant="22" id="o7n-kw-mRt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hqP-Jb-FRR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sleep" image="sleep_bold" selectedImage="sleep_bold" id="uef-Ma-Exv"/>
+                    <navigationItem key="navigationItem" id="heA-r5-sYH"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufo-C4-Cle" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="1874"/>
+            <point key="canvasLocation" x="1847.826086956522" y="1873.6607142857142"/>
+        </scene>
+        <!--Sleep Activity View Controller-->
+        <scene sceneID="8Ws-1J-nSt">
+            <objects>
+                <viewController storyboardIdentifier="SleepActivityViewController" id="ZbZ-Za-NHf" customClass="SleepActivityViewController" customModule="MyPlanr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hsl-We-hJg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Sleep" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3lb-2o-wkJ">
+                                <rect key="frame" x="140.5" y="103" width="133" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="txx-bv-5zT">
+                                <rect key="frame" x="0.0" y="214" width="414" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="O6c-k2-MDa"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="579139190.20297396">
+                                    <!--2019-05-09 23:59:50 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="changedStartDate:" destination="ZbZ-Za-NHf" eventType="valueChanged" id="zOk-s4-2Hy"/>
+                                </connections>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick the time you fell asleep:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mw1-v5-VRL">
+                                <rect key="frame" x="8" y="185" width="218" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fell asleep at..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dNQ-lw-wKF">
+                                <rect key="frame" x="0.0" y="406" width="414" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xEX-rS-GEr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dNQ-lw-wKF" firstAttribute="top" secondItem="txx-bv-5zT" secondAttribute="bottom" constant="12" id="A8D-ip-m3z"/>
+                            <constraint firstItem="dNQ-lw-wKF" firstAttribute="width" secondItem="Hsl-We-hJg" secondAttribute="width" id="Dem-6a-kN2"/>
+                            <constraint firstItem="dNQ-lw-wKF" firstAttribute="centerX" secondItem="Okf-Sz-cOp" secondAttribute="centerX" id="GDl-yE-06Q"/>
+                            <constraint firstItem="txx-bv-5zT" firstAttribute="centerX" secondItem="Okf-Sz-cOp" secondAttribute="centerX" id="UOI-rq-zq5"/>
+                            <constraint firstItem="txx-bv-5zT" firstAttribute="width" secondItem="Hsl-We-hJg" secondAttribute="width" id="Uej-2b-D1p"/>
+                            <constraint firstItem="3lb-2o-wkJ" firstAttribute="centerX" secondItem="Hsl-We-hJg" secondAttribute="centerX" id="bfD-Uw-mDr"/>
+                            <constraint firstItem="mw1-v5-VRL" firstAttribute="top" secondItem="3lb-2o-wkJ" secondAttribute="bottom" constant="46" id="jjm-qS-AH4"/>
+                            <constraint firstItem="3lb-2o-wkJ" firstAttribute="top" secondItem="Okf-Sz-cOp" secondAttribute="top" constant="15" id="jvR-Es-j3H"/>
+                            <constraint firstItem="txx-bv-5zT" firstAttribute="top" secondItem="mw1-v5-VRL" secondAttribute="bottom" constant="8" id="keO-yM-tP7"/>
+                            <constraint firstItem="mw1-v5-VRL" firstAttribute="leading" secondItem="Okf-Sz-cOp" secondAttribute="leading" constant="8" id="oDq-rK-XuG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Okf-Sz-cOp"/>
+                    </view>
+                    <connections>
+                        <outlet property="StartDateLabel" destination="dNQ-lw-wKF" id="aPB-XI-tMM"/>
+                        <outlet property="StartDatePicker" destination="txx-bv-5zT" id="nSl-kF-are"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="diK-7T-xfd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2828.985507246377" y="1873.6607142857142"/>
+        </scene>
+        <!--Sleep-->
+        <scene sceneID="nh6-JL-93r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zpl-Hj-9yt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Sleep" image="sleep_bold" selectedImage="sleep_bold" id="uef-Ma-Exv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="V4c-qj-Ptj">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="GkH-rP-5pK" kind="relationship" relationship="rootViewController" id="yDh-If-Llb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iF1-o1-fhn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937.68115942028987" y="1873.6607142857142"/>
         </scene>
     </scenes>
     <resources>
