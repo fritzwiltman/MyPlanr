@@ -11,6 +11,7 @@
 		1F0D602522781A61009796FA /* AssignmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D602422781A61009796FA /* AssignmentsViewController.swift */; };
 		1F0D602722781A74009796FA /* FitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D602622781A74009796FA /* FitnessViewController.swift */; };
 		1F0D602922781A7E009796FA /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D602822781A7E009796FA /* SleepViewController.swift */; };
+		1F0D602B2278FD23009796FA /* assignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D602A2278FD23009796FA /* assignments.swift */; };
 		1F6EE82922761A12005F9D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EE82822761A12005F9D38 /* AppDelegate.swift */; };
 		1F6EE83022761A12005F9D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6EE82E22761A12005F9D38 /* Main.storyboard */; };
 		1F6EE83222761A13005F9D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6EE83122761A13005F9D38 /* Assets.xcassets */; };
@@ -41,6 +42,7 @@
 		1F0D602422781A61009796FA /* AssignmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentsViewController.swift; sourceTree = "<group>"; };
 		1F0D602622781A74009796FA /* FitnessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessViewController.swift; sourceTree = "<group>"; };
 		1F0D602822781A7E009796FA /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
+		1F0D602A2278FD23009796FA /* assignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignments.swift; sourceTree = "<group>"; };
 		1F6EE82522761A12005F9D38 /* MyPlanr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlanr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6EE82822761A12005F9D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F6EE82F22761A12005F9D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				1F0D602422781A61009796FA /* AssignmentsViewController.swift */,
 				1F0D602622781A74009796FA /* FitnessViewController.swift */,
 				1F0D602822781A7E009796FA /* SleepViewController.swift */,
+				1F0D602A2278FD23009796FA /* assignments.swift */,
 				1F6EE82E22761A12005F9D38 /* Main.storyboard */,
 				1F6EE83122761A13005F9D38 /* Assets.xcassets */,
 				1F6EE83322761A13005F9D38 /* LaunchScreen.storyboard */,
@@ -267,6 +270,7 @@
 			files = (
 				1F0D602522781A61009796FA /* AssignmentsViewController.swift in Sources */,
 				1F0D602722781A74009796FA /* FitnessViewController.swift in Sources */,
+				1F0D602B2278FD23009796FA /* assignments.swift in Sources */,
 				1F0D602922781A7E009796FA /* SleepViewController.swift in Sources */,
 				1F0D602222781A2A009796FA /* CalendarViewController.swift in Sources */,
 				1F6EE82922761A12005F9D38 /* AppDelegate.swift in Sources */,
