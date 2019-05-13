@@ -22,6 +22,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     // what if for the assigments tab there is a "other" or "personal" color for non-school things
     
     // Labels
+    @IBOutlet weak var weekday: UILabel!
     @IBOutlet weak var month: UILabel!
     @IBOutlet weak var day: UILabel!
     @IBOutlet weak var stepCount: UILabel!
@@ -43,13 +44,13 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // Actions -> present to other tab?
     @IBAction func stepAction(_ sender: Any) {
-        print("step")
+        tabBarController?.selectedIndex = 2
     }
     @IBAction func sleepAction(_ sender: Any) {
-        print("sleep")
+        tabBarController?.selectedIndex = 3
     }
     @IBAction func assignAction(_ sender: Any) {
-        print("assign")
+        tabBarController?.selectedIndex = 1
     }
     
     // TableView functions
@@ -95,12 +96,37 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.dataSource = self
         tableView.delegate = self
         month.text = date.monthAsString()
+        month.font = UIFont(name: "Kailasa-Bold", size: 37)
         day.text = getDay()
+        day.font = UIFont(name: "Kailasa-Bold", size: 37)
+        weekday.text = date.dayOfWeek()
+        weekday.font = UIFont(name: "Kailasa-Bold", size: 37)
         stepCount.text = String(counter)
         sleepHours.text = String(hours)
         stepButton.setTitle("👣", for: UIControl.State.normal)
+        stepButton.layer.borderWidth = 2.5
+        stepButton.layer.cornerRadius = 10.0
+        stepButton.layer.shadowRadius = 2.5
+        stepButton.layer.shadowOpacity = 0.5
+        stepButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        stepButton.layer.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        stepButton.layer.borderColor = #colorLiteral(red: 0.5876185298, green: 0.5599239469, blue: 0.5215545297, alpha: 1)
         sleepButton.setTitle("💤", for: UIControl.State.normal)
+        sleepButton.layer.borderWidth = 2.5
+        sleepButton.layer.cornerRadius = 10.0
+        sleepButton.layer.shadowRadius = 2.5
+        sleepButton.layer.shadowOpacity = 0.5
+        sleepButton.layer.shadowOffset = CGSize(width: 5, height: 5)
+        sleepButton.layer.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        sleepButton.layer.borderColor = #colorLiteral(red: 0.5876185298, green: 0.5599239469, blue: 0.5215545297, alpha: 1)
         assignments.setTitle("On the Calendar Today", for: UIControl.State.normal)
+        assignments.layer.borderWidth = 2.5
+        assignments.layer.cornerRadius = 7.0
+        assignments.layer.shadowRadius = 2.5
+        assignments.layer.shadowOpacity = 0.5
+        assignments.layer.shadowOffset = CGSize(width: 5, height: 5)
+        assignments.layer.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        assignments.layer.borderColor = #colorLiteral(red: 0.5876185298, green: 0.5599239469, blue: 0.5215545297, alpha: 1)
         assignments.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControl.State.normal)
     }
     
@@ -111,5 +137,11 @@ extension Date {
         let df = DateFormatter()
         df.setLocalizedDateFormatFromTemplate("MMM")
         return df.string(from: self)
+    }
+    func dayOfWeek() -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self).capitalized
+        // or use capitalized(with: locale) if you want
     }
 }
