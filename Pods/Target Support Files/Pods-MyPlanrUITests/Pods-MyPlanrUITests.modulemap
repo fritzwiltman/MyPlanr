@@ -1,0 +1,6 @@
+framework module Pods_MyPlanrUITests {
+  umbrella header "Pods-MyPlanrUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
