@@ -13,6 +13,7 @@
 		1F0D602922781A7E009796FA /* SleepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D602822781A7E009796FA /* SleepViewController.swift */; };
 		1F0D60302287F270009796FA /* NewAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D602F2287F270009796FA /* NewAssignmentViewController.swift */; };
 		1F0D603322889A2C009796FA /* assignments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D603222889A2C009796FA /* assignments.swift */; };
+		1F0D60352289E974009796FA /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D60342289E974009796FA /* DetailsViewController.swift */; };
 		1F6EE82922761A12005F9D38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6EE82822761A12005F9D38 /* AppDelegate.swift */; };
 		1F6EE83022761A12005F9D38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F6EE82E22761A12005F9D38 /* Main.storyboard */; };
 		1F6EE83222761A13005F9D38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6EE83122761A13005F9D38 /* Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		1F0D602822781A7E009796FA /* SleepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepViewController.swift; sourceTree = "<group>"; };
 		1F0D602F2287F270009796FA /* NewAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAssignmentViewController.swift; sourceTree = "<group>"; };
 		1F0D603222889A2C009796FA /* assignments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignments.swift; sourceTree = "<group>"; };
+		1F0D60342289E974009796FA /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1F6EE82522761A12005F9D38 /* MyPlanr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlanr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6EE82822761A12005F9D38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1F6EE82F22761A12005F9D38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				89E057FF2282632F0041E1C3 /* HealthKitDataStore.swift */,
 				89E233C52284EE9400CECE40 /* SleepActivityViewController.swift */,
 				1F0D602F2287F270009796FA /* NewAssignmentViewController.swift */,
+				1F0D60342289E974009796FA /* DetailsViewController.swift */,
 				1F0D603222889A2C009796FA /* assignments.swift */,
 			);
 			path = MyPlanr;
@@ -429,6 +432,7 @@
 				1F0D602522781A61009796FA /* AssignmentsViewController.swift in Sources */,
 				1F0D602722781A74009796FA /* FitnessViewController.swift in Sources */,
 				89E057FE228244710041E1C3 /* HealthKitSetup.swift in Sources */,
+				1F0D60352289E974009796FA /* DetailsViewController.swift in Sources */,
 				89E233C62284EE9400CECE40 /* SleepActivityViewController.swift in Sources */,
 				89E058002282632F0041E1C3 /* HealthKitDataStore.swift in Sources */,
 				1F0D60302287F270009796FA /* NewAssignmentViewController.swift in Sources */,
