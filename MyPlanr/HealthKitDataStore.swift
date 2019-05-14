@@ -11,38 +11,40 @@ import HealthKit
 
 class HealthKitDataStore {
     
-    class func getStepsCount() {
+    class func getStepsCount(completion: @escaping (HKQuantitySample?, Error?) -> Void) {
         let stepCountType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         
-        let stepsQuery = HKSampleQuery(sampleType: stepCountType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) {
+        let stepsQuery = HKSampleQuery(sampleType: stepCountType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor]) {
             (stepsQuery, result, error) in
             
             DispatchQueue.main.async {
                 if error == nil {
                     guard let steps = result?.last as? HKQuantitySample else {
-                        print("Error fetching step count.")
+                        completion(nil, error)
                         return
                     }
-                    print("\(steps) steps taken, recorded at \(steps.endDate)")
+                    completion(steps, nil)
                 }
             }
         }
         HKHealthStore().execute(stepsQuery)
     }
     
-    class func getDistanceWalkRun() {
+    class func getDistanceWalkRun(completion: @escaping (HKQuantitySample?, Error?) -> Void) {
         let distanceWalkRunType = HKSampleType.quantityType(forIdentifier: HKQuantityTypeIdentifier.distanceWalkingRunning)!
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
         
-        let distanceQuery = HKSampleQuery(sampleType: distanceWalkRunType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: nil) {
+        let distanceQuery = HKSampleQuery(sampleType: distanceWalkRunType, predicate: nil, limit: HKObjectQueryNoLimit, sortDescriptors: [sortDescriptor]) {
             (distanceQuery, result, error) in
             
             DispatchQueue.main.async {
                 if error == nil {
                     guard let distance = result?.last as? HKQuantitySample else {
-                        print("Error fetching walking/running distance.")
+                        completion(nil, error)
                         return
                     }
-                    print(distance)         //distance or distance.count? Also is a sample the total distance for the day?
+                    completion(distance, nil)
                 }
             }
         }
@@ -88,7 +90,7 @@ class HealthKitDataStore {
         }
     }
     
-    class func readSleepActivityPastWeek(completion: @escaping (HKCategorySample?, Error?) -> Void) {
+    class func readSleepActivityPastWeek(completion: @escaping ([HKCategorySample]?, Error?) -> Void) {
         if let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) {
             let now = Date()
             let startDate = Calendar.current.date(byAdding: DateComponents(day: -7), to: now)
@@ -98,9 +100,16 @@ class HealthKitDataStore {
             let sleepQuery = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: 7, sortDescriptors: [sortDescriptor]) {
                 (sleepQuery, result, error) in
                 DispatchQueue.main.async {
-                    print(result)
+                    if error == nil {
+                        guard let sleep = result as? [HKCategorySample] else {
+                            completion(nil, error)
+                            return
+                        }
+                        completion(sleep, nil)
+                    }
                 }
             }
+            HKHealthStore().execute(sleepQuery)
         }
     }
     

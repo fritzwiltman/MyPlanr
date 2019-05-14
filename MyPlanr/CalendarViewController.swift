@@ -101,8 +101,8 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         day.font = UIFont(name: "Kailasa-Bold", size: 37)
         weekday.text = date.dayOfWeek()
         weekday.font = UIFont(name: "Kailasa-Bold", size: 37)
-        stepCount.text = String(counter)
-        sleepHours.text = String(hours)
+//        stepCount.text = String(counter)
+//        sleepHours.text = String(hours)
         stepButton.setTitle("👣", for: UIControl.State.normal)
         stepButton.layer.borderWidth = 2.5
         stepButton.layer.cornerRadius = 10.0
@@ -128,6 +128,38 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         assignments.layer.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
         assignments.layer.borderColor = #colorLiteral(red: 0.5876185298, green: 0.5599239469, blue: 0.5215545297, alpha: 1)
         assignments.setTitleColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), for: UIControl.State.normal)
+        
+        fetchSleepActivity()
+        fetchStepCount()
+    }
+    
+    private func fetchSleepActivity() {
+        HealthKitDataStore.readSleepActivtiyMostRecent() { (sleep, error) in
+            if error == nil, let s = sleep {
+                let start = s.startDate
+                let end = s.endDate
+                let interval = end.timeIntervalSince(start)
+                let secondsInMinute: Double = 60
+                let minutesInHour: Int = 60
+                let secondsInHour: Double = 3600
+                let hours = Int(interval/secondsInHour)
+                let minutes = Int(interval/secondsInMinute) % minutesInHour
+                
+                self.sleepHours.text = "\(hours):\(minutes)"
+            } else {
+                self.sleepHours.text = "- - -"
+            }
+        }
+    }
+    
+    private func fetchStepCount() {
+        HealthKitDataStore.getStepsCount() { (steps, error) in
+            if error == nil, let s = steps {
+                self.stepCount.text = String(s.count)
+            } else {
+                self.stepCount.text = "- - -"
+            }
+        }
     }
     
 }

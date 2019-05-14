@@ -40,11 +40,23 @@ class FitnessViewController: UIViewController {
     }
     
     private func getStepsCount() {
-        HealthKitDataStore.getStepsCount()
+        HealthKitDataStore.getStepsCount() { (steps, error) in
+            if error == nil, let s = steps {
+                print(s)
+            } else {
+                print("- - -")
+            }
+        }
     }
     
     private func getDistanceWalkRun() {
-        HealthKitDataStore.getDistanceWalkRun()
+        HealthKitDataStore.getDistanceWalkRun() { (distance, error) in
+            if error == nil, let d = distance {
+                print(d)
+            } else {
+                print("- - -")
+            }
+        }
     }
     
     @objc private func addFitnessActivity(sender: Any) {
