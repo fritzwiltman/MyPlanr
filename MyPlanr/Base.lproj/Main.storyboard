@@ -30,7 +30,7 @@
             </objects>
             <point key="canvasLocation" x="-672" y="901"/>
         </scene>
-        <!--Calendar-->
+        <!--Overview-->
         <scene sceneID="tXo-1U-PNV">
             <objects>
                 <viewController id="e6v-Kv-vgN" customClass="CalendarViewController" customModule="MyPlanr" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,7 +158,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M5Q-25-KD1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" image="calendar" selectedImage="calendar" id="NOS-Ad-NkL"/>
+                    <tabBarItem key="tabBarItem" title="Overview" image="calendar" selectedImage="calendar" id="NOS-Ad-NkL"/>
                     <connections>
                         <outlet property="assignments" destination="yLA-az-PIq" id="SlE-bc-s0s"/>
                         <outlet property="day" destination="rGM-zO-10o" id="qSM-JB-xTt"/>
