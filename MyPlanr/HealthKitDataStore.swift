@@ -82,4 +82,20 @@ class HealthKitDataStore {
         }
     }
     
+    class func readSleepActivityPastWeek(completion: @escaping (HKCategorySample?, Error?) -> Void) {
+        if let sleepType = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) {
+            let now = Date()
+            let startDate = Calendar.current.date(byAdding: DateComponents(day: -7), to: now)
+            let predicate = HKQuery.predicateForSamples(withStart: startDate, end: now, options: .strictStartDate)
+            let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+            
+            let sleepQuery = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: 7, sortDescriptors: [sortDescriptor]) {
+                (sleepQuery, result, error) in
+                
+                print(result)
+                
+            }
+        }
+    }
+    
 }

@@ -13,7 +13,6 @@ class FitnessViewController: UIViewController {
     @IBAction func ButtonAction(_ sender: Any) {
         getStepsCount()
     }
-    @IBOutlet weak var AuthorizationMessageLabel: UILabel!
     
     @IBAction func getStepsAction(_ sender: Any) {
         getDistanceWalkRun()
@@ -23,24 +22,17 @@ class FitnessViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addFitnessActivity))
+        
         HealthKitSetup.authorizeHealthKit { (success, error) in
             
-            if success {
-                DispatchQueue.main.async {
-                    self.AuthorizationMessageLabel.text = "HealthKit was successfully authorized on this device."
-                }
-                
-            } else {
+            if !success {
                 let errDesc = "HealthKit authorization failed."
                 
                 if let e = error {
-                    DispatchQueue.main.async {
-                        self.AuthorizationMessageLabel.text = errDesc + e.localizedDescription
-                    }
+                    print(errDesc + e.localizedDescription)
                 } else {
-                    DispatchQueue.main.async {
-                        print(errDesc)
-                    }
+                    print(errDesc)
                 }
                 self.returnToCalendarView()
             }
@@ -53,6 +45,10 @@ class FitnessViewController: UIViewController {
     
     private func getDistanceWalkRun() {
         HealthKitDataStore.getDistanceWalkRun()
+    }
+    
+    @objc private func addFitnessActivity(sender: Any) {
+        self.performSegue(withIdentifier: "fitness", sender: self)
     }
     
     private func returnToCalendarView() {

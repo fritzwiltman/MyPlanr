@@ -22,7 +22,7 @@
                     <connections>
                         <segue destination="e6v-Kv-vgN" kind="relationship" relationship="viewControllers" id="KEV-EZ-7G0"/>
                         <segue destination="MtV-x1-xhM" kind="relationship" relationship="viewControllers" id="O0Q-a0-OZ7"/>
-                        <segue destination="kWr-Kf-BHy" kind="relationship" relationship="viewControllers" id="A71-n2-1Fo"/>
+                        <segue destination="jI8-lR-P5s" kind="relationship" relationship="viewControllers" id="A71-n2-1Fo"/>
                         <segue destination="zpl-Hj-9yt" kind="relationship" relationship="viewControllers" id="uSd-lD-tcL"/>
                     </connections>
                 </tabBarController>
@@ -350,9 +350,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t0i-ax-4pn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2511.594202898551" y="874.55357142857144"/>
+            <point key="canvasLocation" x="3421.739130434783" y="874.55357142857144"/>
         </scene>
-        <!--Fitness-->
+        <!--Fitness View Controller-->
         <scene sceneID="hgF-6q-8IE">
             <objects>
                 <viewController id="kWr-Kf-BHy" customClass="FitnessViewController" customModule="MyPlanr" customModuleProvider="target" sceneMemberID="viewController">
@@ -361,7 +361,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-ZK-FQK">
-                                <rect key="frame" x="0.0" y="129" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="173" width="414" height="48"/>
                                 <color key="backgroundColor" red="1" green="0.71485838099999999" blue="0.18146145050000001" alpha="0.74664392609999997" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Zcx-vb-pYA"/>
@@ -375,22 +375,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fitness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zu8-GU-Crk">
-                                <rect key="frame" x="133.5" y="59" width="147" height="48"/>
+                                <rect key="frame" x="133.5" y="103" width="147" height="48"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnk-00-Fhj">
-                                <rect key="frame" x="20.5" y="400" width="373" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="96" id="XeH-dL-u8t"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2B-Fb-D3O">
-                                <rect key="frame" x="0.0" y="185" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="229" width="414" height="48"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="khc-ue-Dw6"/>
@@ -406,30 +397,40 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.95462034551071751" blue="0.86542323244585528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mnk-00-Fhj" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" multiplier="0.9" id="2qB-eW-10a"/>
                             <constraint firstItem="Zu8-GU-Crk" firstAttribute="top" secondItem="hFh-t9-LVz" secondAttribute="top" constant="15" id="73v-g8-Gth"/>
-                            <constraint firstItem="mnk-00-Fhj" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="LO8-vV-bfP"/>
                             <constraint firstItem="Z2d-ZK-FQK" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="OU2-Uk-Th4"/>
                             <constraint firstItem="Zu8-GU-Crk" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="QcJ-cr-thw"/>
                             <constraint firstItem="o2B-Fb-D3O" firstAttribute="centerX" secondItem="FiU-uk-9JJ" secondAttribute="centerX" id="QhC-ac-6dR"/>
                             <constraint firstItem="Z2d-ZK-FQK" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" id="R7C-Jb-zX2"/>
-                            <constraint firstItem="mnk-00-Fhj" firstAttribute="centerY" secondItem="FiU-uk-9JJ" secondAttribute="centerY" id="Rtu-SD-Ti4"/>
                             <constraint firstItem="o2B-Fb-D3O" firstAttribute="top" secondItem="Z2d-ZK-FQK" secondAttribute="bottom" constant="8" id="a7n-BK-Qvg"/>
                             <constraint firstItem="Z2d-ZK-FQK" firstAttribute="top" secondItem="Zu8-GU-Crk" secondAttribute="bottom" constant="22" id="fws-Sd-qQB"/>
                             <constraint firstItem="o2B-Fb-D3O" firstAttribute="width" secondItem="FiU-uk-9JJ" secondAttribute="width" id="peL-59-JT4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hFh-t9-LVz"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Fitness" image="fitness_bold" selectedImage="fitness_bold" id="QsG-Ya-F90">
-                        <inset key="largeContentSizeImageInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="u3d-Rh-Ry7"/>
                     <connections>
-                        <outlet property="AuthorizationMessageLabel" destination="mnk-00-Fhj" id="BJA-Zh-iPS"/>
+                        <segue destination="fUt-hQ-pVX" kind="show" identifier="fitness" id="6IT-nd-DAP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uhY-uZ-kGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="938" y="1202"/>
+            <point key="canvasLocation" x="1847.826086956522" y="1201.3392857142856"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pGq-FB-tB9">
+            <objects>
+                <viewController id="fUt-hQ-pVX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h9E-rA-3yR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fug-5s-41H"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VgH-Af-hst" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2657" y="1195"/>
         </scene>
         <!--Sleep View Controller-->
         <scene sceneID="hNV-0J-Q4L">
@@ -702,6 +703,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cDk-ob-Prl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2511.594202898551" y="206.91964285714286"/>
+        </scene>
+        <!--Fitness-->
+        <scene sceneID="jVN-Go-kOl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jI8-lR-P5s" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Fitness" image="fitness_bold" selectedImage="fitness_bold" id="QsG-Ya-F90">
+                        <inset key="largeContentSizeImageInsets" minX="-1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fHa-0f-Dgs">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kWr-Kf-BHy" kind="relationship" relationship="rootViewController" id="B0g-Cn-M4d"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9LN-S0-6LH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937.68115942028987" y="1201.3392857142856"/>
         </scene>
     </scenes>
     <resources>
