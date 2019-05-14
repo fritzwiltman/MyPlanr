@@ -32,4 +32,5 @@ class Assignments {
     func addAssignment(assignment : Assignment) {
         assignments.append(assignment)
     }
+    
 }
