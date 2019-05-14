@@ -28,7 +28,6 @@ class AssignmentsViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         if (allAssignments.assignments.isEmpty) {
