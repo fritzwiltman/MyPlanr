@@ -18,11 +18,13 @@ class HealthKitDataStore {
             (stepsQuery, result, error) in
             
             DispatchQueue.main.async {
-                guard let steps = result?.last as? HKQuantitySample else {
-                    print("Error fetching step count.")
-                    return
+                if error == nil {
+                    guard let steps = result?.last as? HKQuantitySample else {
+                        print("Error fetching step count.")
+                        return
+                    }
+                    print("\(steps) steps taken, recorded at \(steps.endDate)")
                 }
-                print("\(steps) steps taken, recorded at \(steps.endDate)")
             }
         }
         HKHealthStore().execute(stepsQuery)
@@ -35,11 +37,13 @@ class HealthKitDataStore {
             (distanceQuery, result, error) in
             
             DispatchQueue.main.async {
-                guard let distance = result?.last as? HKQuantitySample else {
-                    print("Error fetching walking/running distance.")
-                    return
+                if error == nil {
+                    guard let distance = result?.last as? HKQuantitySample else {
+                        print("Error fetching walking/running distance.")
+                        return
+                    }
+                    print(distance)         //distance or distance.count? Also is a sample the total distance for the day?
                 }
-                print(distance)         //distance or distance.count? Also is a sample the total distance for the day?
             }
         }
         HKHealthStore().execute(distanceQuery)
@@ -70,13 +74,15 @@ class HealthKitDataStore {
             
             let sleepQuery = HKSampleQuery(sampleType: sleepType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor]) {
                 (sleepQuery, result, error) in
-                
-                guard let sleep = result?.last as? HKCategorySample else {
-                    completion(nil, error)
-                    return
+                DispatchQueue.main.async {
+                    if error == nil {
+                        guard let sleep = result?.last as? HKCategorySample else {
+                            completion(nil, error)
+                            return
+                        }
+                        completion(sleep, nil)
+                    }
                 }
-                completion(sleep, nil)
-                
             }
             HKHealthStore().execute(sleepQuery)
         }
@@ -91,11 +97,74 @@ class HealthKitDataStore {
             
             let sleepQuery = HKSampleQuery(sampleType: sleepType, predicate: predicate, limit: 7, sortDescriptors: [sortDescriptor]) {
                 (sleepQuery, result, error) in
-                
-                print(result)
-                
+                DispatchQueue.main.async {
+                    print(result)
+                }
             }
         }
+    }
+    
+    class func saveWorkout(newWorkout: Workout, completion: @escaping (Bool, Error?) -> Void) {
+        let healthStore = HKHealthStore()
+        let workoutConfig = HKWorkoutConfiguration()
+        workoutConfig.activityType = .other
+        
+        
+        let builder = HKWorkoutBuilder(healthStore: healthStore, configuration: workoutConfig, device: .local())
+        builder.beginCollection(withStart: newWorkout.startDate) { (success, error) in
+            guard success else {
+                completion(false, error)
+                return
+            }
+            
+        }
+        
+        guard let quantityType = HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned) else {
+                completion(false, nil)
+                return
+        }
+        
+        let quantity = HKQuantity(unit: HKUnit.kilocalorie(), doubleValue: newWorkout.totalCaloriesBurned)
+        
+        let workoutSample = HKCumulativeQuantitySeriesSample(type: quantityType, quantity: quantity, start: newWorkout.startDate, end: newWorkout.endDate)
+        
+        builder.add([workoutSample]) { (success, error) in
+            guard success else {
+                completion(false, error)
+                return
+            }
+            builder.endCollection(withEnd: newWorkout.endDate) { (success, error) in
+                guard success else {
+                    completion(false, error)
+                    return
+                }
+                builder.finishWorkout { (_, error) in
+                    let success = error == nil
+                    completion(success, error)
+                }
+            }
+        }
+    }
+    
+    class func loadWorkout(completion: @escaping ([HKWorkout]?, Error?) -> Void) {
+        let predicates = NSCompoundPredicate(andPredicateWithSubpredicates: [
+                HKQuery.predicateForWorkouts(with: .other),
+                HKQuery.predicateForObjects(from: .default())
+            ])
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: true)
+        
+        let workoutQuery = HKSampleQuery(sampleType: .workoutType(), predicate: predicates, limit: 0, sortDescriptors: [sortDescriptor]) { (workoutQuery, result, error) in
+            DispatchQueue.main.async {
+                if error == nil {
+                    guard let workout = result as? [HKWorkout] else {
+                        completion(nil, error)
+                        return
+                    }
+                    completion(workout, nil)
+                }
+            }
+        }
+        HKHealthStore().execute(workoutQuery)
     }
     
 }

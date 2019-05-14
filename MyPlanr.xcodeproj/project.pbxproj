@@ -25,6 +25,7 @@
 		89E057FE228244710041E1C3 /* HealthKitSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E057FD228244710041E1C3 /* HealthKitSetup.swift */; };
 		89E058002282632F0041E1C3 /* HealthKitDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E057FF2282632F0041E1C3 /* HealthKitDataStore.swift */; };
 		89E233C62284EE9400CECE40 /* SleepActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E233C52284EE9400CECE40 /* SleepActivityViewController.swift */; };
+		89E267AE228A4ABA00C42EE8 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E267AD228A4ABA00C42EE8 /* Workout.swift */; };
 		CF402B3D2E450E3DFAAC30FF /* Pods_MyPlanrTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFFDCD7FA2F2B93493C795AF /* Pods_MyPlanrTests.framework */; };
 		D0D8076ECBBA526874EA0FF4 /* Pods_MyPlanr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BC6168EC148DE1A0809852 /* Pods_MyPlanr.framework */; };
 /* End PBXBuildFile section */
@@ -77,6 +78,7 @@
 		89E057FD228244710041E1C3 /* HealthKitSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitSetup.swift; sourceTree = "<group>"; };
 		89E057FF2282632F0041E1C3 /* HealthKitDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitDataStore.swift; sourceTree = "<group>"; };
 		89E233C52284EE9400CECE40 /* SleepActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepActivityViewController.swift; sourceTree = "<group>"; };
+		89E267AD228A4ABA00C42EE8 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		DFFDCD7FA2F2B93493C795AF /* Pods_MyPlanrTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyPlanrTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEAD35F24E3373D3162B16A8 /* Pods-MyPlanrUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlanrUITests.debug.xcconfig"; path = "Target Support Files/Pods-MyPlanrUITests/Pods-MyPlanrUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F9A2ABFB56B5537A8B7D1030 /* Pods-MyPlanrUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlanrUITests.release.xcconfig"; path = "Target Support Files/Pods-MyPlanrUITests/Pods-MyPlanrUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				1F0D602F2287F270009796FA /* NewAssignmentViewController.swift */,
 				1F0D60342289E974009796FA /* DetailsViewController.swift */,
 				1F0D603222889A2C009796FA /* assignments.swift */,
+				89E267AD228A4ABA00C42EE8 /* Workout.swift */,
 			);
 			path = MyPlanr;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				1F0D602222781A2A009796FA /* CalendarViewController.swift in Sources */,
 				1F0D603322889A2C009796FA /* assignments.swift in Sources */,
 				1F6EE82922761A12005F9D38 /* AppDelegate.swift in Sources */,
+				89E267AE228A4ABA00C42EE8 /* Workout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
