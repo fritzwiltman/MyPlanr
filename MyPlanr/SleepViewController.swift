@@ -9,7 +9,12 @@
 import UIKit
 import HealthKit
 
-class SleepViewController: UIViewController {
+class SleepTableCell: UITableViewCell {
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var data: UILabel!
+}
+
+class SleepViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBAction func ButtonAction(_ sender: Any) {
         fetchSleepActivityMostRecent()
@@ -18,6 +23,7 @@ class SleepViewController: UIViewController {
     
     @IBOutlet weak var YesterdayLabel: UILabel!
     @IBOutlet weak var TableView: UITableView!
+    
     
     private var sleepData: [HKCategorySample]?
     private var sleepCellIdentifier = "SleepDataCell"
@@ -46,13 +52,14 @@ class SleepViewController: UIViewController {
             }
         }
         
-        fetchSleepActivityMostRecent()
-        fetchSleepActivityPastWeek()
+        TableView.dataSource = self as? UITableViewDataSource
+        TableView.delegate = self as? UITableViewDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchSleepActivityPastWeek()
+        fetchSleepActivityMostRecent()
     }
     
     private func returnToCalendarView() {
@@ -74,12 +81,6 @@ class SleepViewController: UIViewController {
                 let start = activity?.startDate
                 let end = activity?.endDate
                 let interval = end?.timeIntervalSince(start!)
-                
-//                let secondsInMinute: Double = 60
-//                let minutesInHour: Int = 60
-//                let secondsInHour: Double = 3600
-//                let hours = Int(interval!/secondsInHour)
-//                let minutes = Int(interval!/secondsInMinute) % minutesInHour
                 let (hours, minutes) = self.formatHoursMins(i: interval ?? 0)
                 displayString = "\(hours) hrs \(minutes) mins"
             }
@@ -90,19 +91,6 @@ class SleepViewController: UIViewController {
     }
     
     private func fetchSleepActivityPastWeek() {
-//        HealthKitDataStore.readSleepActivityPastWeek() { (activity, error) in
-//            if error == nil {
-//                for a in activity ?? [] {
-//                    let start = a.startDate
-//                    let end = a.endDate
-//                    let interval = end.timeIntervalSince(start)
-//                    let (hours, minutes) = self.formatHoursMins(i: interval)
-//
-//                    print("From \(start) to \(end) -- \(hours):\(minutes)")
-//                }
-//            }
-//        }
-        
         HealthKitDataStore.readSleepActivityPastWeek() { (activity, error) in
             self.sleepData = activity
             self.TableView.reloadData()
@@ -124,41 +112,30 @@ class SleepViewController: UIViewController {
         return sleepData?.count ?? 0
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 62.0
+    }
+    
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier:
+            sleepCellIdentifier, for: indexPath)
         
-        if let sleepData = sleepData {
-            let cell = tableView.dequeueReusableCell(withIdentifier:
-                sleepCellIdentifier, for: indexPath)
+        if let sleepData = sleepData, let cell = cell as? SleepTableCell {
+                let sleep = sleepData[indexPath.row]
+                
+                let formatter = DateFormatter()
+                formatter.timeStyle = .short
+                formatter.dateStyle = .medium
+                cell.time.text = "\(formatter.string(from: sleep.startDate)) to \(formatter.string(from: sleep.endDate))"
+                let (hours, mins) = formatHoursMins(i: sleep.endDate.timeIntervalSince(sleep.startDate))
+                cell.data.text = "\(hours) hrs \(mins) mins"
+                
+                return cell
             
-            let sleep = sleepData[indexPath.row]
-            
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            formatter.dateStyle = .medium
-            cell.textLabel?.text = "\(formatter.string(from: sleep.startDate)) to \(formatter.string(from: sleep.endDate))"
-            
-    //        if let caloriesBurned =
-    //            workout.totalEnergyBurned?.doubleValue(for: .kilocalorie()) {
-    //            let formattedCalories = String(format: "CaloriesBurned: %.2f",
-    //                                           caloriesBurned)
-    //
-    //            cell.detailTextLabel?.text = formattedCalories
-    //        } else {
-    //            cell.detailTextLabel?.text = nil
-    //        }
-            
-            let (hours, mins) = formatHoursMins(i: sleep.startDate.timeIntervalSince(sleep.endDate))
-            cell.detailTextLabel?.text = "\(hours) hrs \(mins) mins"
-            
-            return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier:
-                sleepCellIdentifier, for: indexPath)
-            cell.textLabel?.text = nil
-            cell.detailTextLabel?.text = nil
-            
             return cell
         }
     }
+    
 }

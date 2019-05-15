@@ -12,12 +12,17 @@ class FitnessViewController: UIViewController {
 
     @IBAction func ButtonAction(_ sender: Any) {
         getStepsCount()
+        getDistanceWalkRun()
     }
     
-    @IBAction func getStepsAction(_ sender: Any) {
-        getDistanceWalkRun()
-        getStepsCount()
-    }
+//    @IBAction func getStepsAction(_ sender: Any) {
+//        getDistanceWalkRun()
+//        getStepsCount()
+//    }
+    
+    @IBOutlet weak var StepsLabel: UILabel!
+    @IBOutlet weak var DistanceLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,22 +44,31 @@ class FitnessViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        getStepsCount()
+        getDistanceWalkRun()
+    }
+    
     private func getStepsCount() {
         HealthKitDataStore.getStepsCount() { (steps, error) in
-            if error == nil, let s = steps {
-                print(s)
-            } else {
-                print("- - -")
+            DispatchQueue.main.async {
+                if error == nil, let s = steps {
+                    self.StepsLabel.text = "\(s.count) steps"
+                } else {
+                    self.StepsLabel.text = "- - - steps"
+                }
             }
         }
     }
     
     private func getDistanceWalkRun() {
         HealthKitDataStore.getDistanceWalkRun() { (distance, error) in
-            if error == nil, let d = distance {
-                print(d)
-            } else {
-                print("- - -")
+            DispatchQueue.main.async {
+                if error == nil, let d = distance {
+                    self.DistanceLabel.text = "\(d.count) mi"
+                } else {
+                    self.DistanceLabel.text = "- - - mi"
+                }
             }
         }
     }
